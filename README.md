@@ -25,7 +25,7 @@ docs/arquitetura.svg   desenho da arquitetura
 Pré-requisitos: conta Azure, [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli), [.NET 8 SDK](https://dotnet.microsoft.com/download), `zip`. Use o **Azure Cloud Shell (Bash)** se preferir: ele já traz `az`, `dotnet` e `sqlcmd`.
 
 ```bash
-git clone <URL_DO_SEU_REPOSITORIO> && cd <PASTA>
+git clone https://github.com/FelipeConteFerreira/CP5-DevOps.git && cd CP5-DevOps
 az login
 
 # 1. Cria Resource Group, Application Insights, Azure SQL, Web App e configurações
