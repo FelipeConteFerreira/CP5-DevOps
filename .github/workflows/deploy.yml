@@ -1,0 +1,21 @@
+name: Deploy DimDim no Azure Web App
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with: { dotnet-version: '8.0.x' }
+      - name: Publicar
+        run: dotnet publish src/DimDim/DimDim.csproj -c Release -o publish
+      - name: Compactar
+        run: cd publish && zip -r ../app.zip .
+      - uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Deploy com Azure CLI
+        run: az webapp deploy -g rg-dimdim -n "${{ secrets.AZURE_WEBAPP_NAME }}" --src-path app.zip --type zip

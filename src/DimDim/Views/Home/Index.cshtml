@@ -1,0 +1,7 @@
+@{ ViewData["Title"] = "Início"; }
+<div class="hero">
+  <h1>Pague com dimdim.</h1>
+  <p class="lead col-md-7">Cadastre clientes e registre as transações deles. Tudo roda no Azure Web App e grava no Azure SQL Database.</p>
+  <a class="btn btn-dd btn-lg me-2" asp-controller="Clientes" asp-action="Create">Novo cliente</a>
+  <a class="btn btn-outline-dark btn-lg" asp-controller="Transacoes" asp-action="Create">Nova transação</a>
+</div>
